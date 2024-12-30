@@ -4,102 +4,11 @@
   box-sizing: border-box;
 }
 html {
-  font-size: 10px;
+  font-size: 10px;  
 }
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   margin: 1rem;
-}
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-[class*="col-"] {
-  float: left;
-  padding: 10px;
-}
-.col-1 {
-  width: 8.33%;
-}
-.col-2 {
-  width: 16.66%;
-}
-.col-3 {
-  width: 25%;
-}
-.col-4 {
-  width: 33.33%;
-}
-.col-5 {
-  width: 41.66%;
-}
-.col-6 {
-  width: 50%;
-}
-.col-7 {
-  width: 58.33%;
-}
-.col-8 {
-  width: 66.66%;
-}
-.col-9 {
-  width: 75%;
-}
-.col-10 {
-  width: 83.33%;
-}
-.col-11 {
-  width: 91.66%;
-}
-.col-12 {
-  width: 100%;
-}
-.nav_upper {
-  width: 100%;
-  height: auto;
-  font-size: 1.5rem;
-  font-weight: bold;
-  font-family: Georgia, "Times New Roman", Times, serif;
-  margin: 1rem auto;
-  color: #fff;
-  
-}
-.nav_upper ul {
-  list-style-type: none;
-  margin: 0px auto;
-}
-.nav_upper li {
-  display: inline-block;
-  background-color: #798ba1;
- 
-  padding: 1.4rem 4.6rem;
-  border-radius: 0.5rem;
-}
-
-.nav_upper li a {
-  text-decoration: none;
-  padding: 1.4rem 1.6rem;
-  color: rgb(198, 247, 255);
-}
-.nav_upper li a:visited {
-  padding: 1rem;
-  border-radius: 0.5rem;
-  
-}
-
-.nav_upper li a:hover {
-  color: #000;
-  border-radius: 0.5rem;
-  font-weight: bold;
-}
-.nav_upper li a:active {
- 
-  
-}
-.nav_upper li a:focus {
-  
-  
 }
 .nav_left {
   height: auto;
@@ -116,7 +25,7 @@ body {
 }
 .nav_left li {
   display: block;
-  padding: 2rem;
+  padding: 1rem;
   text-align: left;
   border: 0.1rem solid black;
   border-radius: 0.5rem;
@@ -125,27 +34,26 @@ body {
   font-weight: bold;
   color: rgb(187, 242, 250);
 }
-
 .nav_left li a {
   text-decoration: none;
   color:rgb(198, 247, 255);
-}
-.nav_left li a:visited {
   padding: 1rem;
-  border-radius: 5px;
+  display: block;
+  border-radius: 0.5rem;
 }
 .nav_left li a:visited {
   padding: 1rem;
   border-radius: 0.5rem;
+  
 }
 .nav_left li a:hover {
-  
   border-radius: 5px;
   font-weight: bold;
   color: #000;
-  display: block;
+  
 }
 .nav_left li a:active {
+  
 }
 .input_box {
   display: block;
@@ -232,12 +140,19 @@ button {
   color: rgb(187, 242, 250);
   font-weight: bold;
 }
-#weight_unit,
+
 #temp_unit,
+#weight_unit
 #area_unit,
-#binary_unit {
+#time_unit
+{
   position: relative;
-  display: block;
   width: 100%;
   margin-left: 1rem;
+}
+.weight_content {
+  display: none;
+}
+.active {
+  display: block;
 }

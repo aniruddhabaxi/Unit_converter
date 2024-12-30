@@ -1,197 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/nav.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="container">
-      <section class="row">
-        <header>
-          <h1>Unit Converter..</h1>
-        </header>
-      </section>
-      <section class="row">
-        <nav class="nav_upper">
-          <ul>
-            <li><a href="#">Weight</a></li>
-            <li><a href="#">Temprature</a></li>
-            <li><a href="#">Length</a></li>
-            <li><a href="#">Area</a></li>
-            <li style="margin-right: 0"><a href="#">Binary</a></li>
-          </ul>
-        </nav>
-      </section>
-      <section class="row">
-        <nav class="col-2 nav_left">
-          <ul class="unit_buttons">
-            <li><a href="#">Weight</a></li>
-            <li>
-              <a href="#">Temprature</a>
-            </li>
-            <li>
-              <a href="#">Length</a>
-            </li>
-            <li>
-              <a href="#">Area</a>
-            </li>
-            <li>
-              <a href="#">Binary</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="col-9 box_conversion">
-          <div class="input_box">
-            <div class="input_value">
-              <input
-              type="number"
-                name="inputVal"
-                id="inputVal"
-                placeholder="Enter the Value"
-              />
-            </div>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/nav.css" />
+<link rel="stylesheet" href="css/responsive.css">
+<title>Document</title>
+</head>
+<body>
+<div class="container">
+<section class="row">
+<header>
+<h1>Unit Converter..</h1>
+</header>
+</section>
 
-            <!-- this is for weight units -->
-           <div id="weight_unit" class="weight_content">
-            <div class="from_Unit">
-              <label for="fromUnit">From:</label>
-              <select name="fromWeight" id="fromWeight">
-                <option value="Gram">Gram</option>
-                <option value="Kilogram">Kilogram</option>
-                <option value="Tonne">Tonne</option>
-                <option value="MegaTonne">MegaTonne</option>
-                <option value="GigaTonne">GigaTonne</option>
-              </select>
-            </div>
-            <div class="to_Unit">
-              <label for="toUnit">To:</label>
-              <select name="toWeight" id="toWeight">
-                <option value="Gram">Gram</option>
-                <option value="Kilogram">Kilogram</option>
-                <option value="Tonne">Tonne</option>
-                <option value="MegaTonne">MegaTonne</option>
-                <option value="GigaTonne">GigaTonne</option>
-              </select>
-            </div>
-            
-          </div>
-          <div class="convert_button">
-            <button type="submit" value="Convert" id="convert" name="convert" onclick="weightConvert()"> Convert</button>
-          </div>
-            <div class="outputUnit" id="outputResult"></div>
-            </div>
-          </div>
-          <!-- This is for temprature unit -->
+<section class="row">
+<nav class="col-2 nav_left">
+<div class="col-1"></div>
+<ul class="unit_buttons">
+  <li><a href="#" id="weight" class="navButton">Weight</a></li>
+  <li>
+    <a href="#" id="temp" class="navButton">Temp</a>
+  </li>
+  <li>
+    <a href="#" id="time" class="navButton">Time</a>
+  </li>
+  <li>
+    <a href="#" id="area" class="navButton">Area</a>
+  </li>
+  
+</ul>
+</nav>
+<div class="col-9 box_conversion" id="divContent">
+<div class="input_box">
+  <div class="input_value">
+    <input type="number" name="inputVal" id="inputVal" placeholder="Enter the Value"/>
+  </div>
 
-          <!-- <div id="temp_unit" class="weight_content">
-            <div class="from_Unit">
-              <label for="fromUnit">From:</label>
-              <select name="fromTemp" id="fromTemp">
-                <option value="selsius">Selsius</option>
-                <option value="kelvin">Kelvin</option>
-                <option value="fahrenheit">Fahrenheit</option>
-              </select>
-            </div>
-            <div class="to_Unit">
-              <label for="toUnit">To:</label>
-              <select name="toTemp" id="toTemp">
-                <option value="selsius">Selsius</option>
-                <option value="kelvin">Kelvin</option>
-                <option value="fahrenheit">Fahrenheit</option>
-                
-              </select>
-            </div>
-            
-          </div> -->
+  <!-- this is for weight units -->
+  <div id="weight_unit" class="weight_content">
+  <div class="from_Unit">
+    <label for="fromUnit">From:</label>
+    <select name="fromWeight" id="fromWeight">
+      <option value="gram">Gram</option>
+      <option value="kilogram">Kilogram</option>
+      <option value="tonne">Tonne</option>
+      <option value="megatonne">MegaTonne</option>
+      <option value="gigatonne">GigaTonne</option>
+    </select>
 
-          <!-- This is for area -->
-          <!-- <div id="area_unit">
-            <div class="from_Unit">
-              <label for="fromUnit">From:</label>
-              <select name="fromArea" id="fromArea">
-                <option value="meter">Meter</option>
-                <option value="kilometer">Kilometer</option>
-                <option value="centimeter">Centimeter</option>
-                <option value="milimeter">Milimeter</option>
-              </select>
-            </div>
-            <div class="to_Unit">
-              <label for="toUnit">To:</label>
-              <select name="toArea" id="toArea">
-                <option value="meter">Meter</option>
-                <option value="kilometer">Kilometer</option>
-                <option value="centimeter">Centimeter</option>
-                <option value="milimeter">Milimeter</option>
-                
-              </select>
-            </div>
-            
-          </div> -->
-
-          <!-- This is for Binary units -->
-
-          <!-- <div id="binary_unit">
-            <div class="from_Unit">
-              <label for="fromUnit">From:</label>
-              <select name="fromBinary" id="fromBinary">
-                <option value="bit">Bit</option>
-                <option value="byte">Byte</option>
-                <option value="kilobyte">Kilobyte</option>
-                <option value="milibyte">Milibyte</option>
-                <option value="gigabyte">Gigabyte</option>
-                <option value="terbyte">Terbyte</option>
-              </select>
-            </div>
-            <div class="to_Unit">
-              <label for="toUnit">To:</label>
-              <select name="toBinary" id="toBinary">
-                <option value="bit">Bit</option>
-                <option value="byte">Byte</option>
-                <option value="kilobyte">Kilobyte</option>
-                <option value="milibyte">Milibyte</option>
-                <option value="gigabyte">Gigabyte</option>
-                <option value="terbyte">Terbyte</option>
-                
-              </select>
-            </div>
-            
-          </div> -->
-          <!-- <div class="convert_button">
-            <button type="submit" value="Convert" id="convert" name="convert" onclick="weightConvert()"> Convert</button>
-          </div>
-            <div class="outputUnit"></div>
-            </div>
-          </div> -->
-
-          <!-- <div class="inputUnit">
-            <label for="cars">Choose a car:</label>
-            <select name="cars" id="cars">
-              <option value="volvo">Volvo</option>
-              <option value="saab">Saab</option>
-              <option value="opel">Opel</option>
-              <option value="audi">Audi</option>
-            </select>
-          </div>
-
-          <div class="outputUnit">
-            <div class="outputBox"></div>
-            <div class="inputUnit">
-              <label for="cars">Choose a car:</label>
-              <select name="cars" id="cars">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="opel">Opel</option>
-                <option value="audi">Audi</option>
-              </select>
-            </div>
-          </div> -->
-        </div>
-      </section>
-      <section></section>
     </div>
-    <script src="scripts/script.js"></script>
-  </body>
+  
+  <div class="to_Unit">
+    <label for="toUnit">To:</label>
+    <select name="toWeight" id="toWeight">
+      <option value="gram">Gram</option>
+      <option value="kilogram">Kilogram</option>
+      <option value="tonne">Tonne</option>
+      <option value="megatonne">MegaTonne</option>
+      <option value="gigatonne">GigaTonne</option>
+    </select>
+  </div>
+  
+</div>
+
+<!-- This is for temprature unit -->
+
+<div id="temp_unit" class="weight_content">
+  <div class="from_Unit">
+    <label for="fromUnit">From:</label>
+    <select name="fromTemp" id="fromTemp">
+      <option value="celsius">Celsius</option>
+      <option value="kelvin">Kelvin</option>
+      <option value="fahrenheit">Fahrenheit</option>
+    </select>
+  </div>
+  <div class="to_Unit">
+    <label for="toUnit">To:</label>
+    <select name="toTemp" id="toTemp">
+      <option value="celsius">Celsius</option>
+      <option value="kelvin">Kelvin</option>
+      <option value="fahrenheit">Fahrenheit</option>
+      
+    </select>
+  </div>
+</div>
+
+<!-- This is for time -->
+<div id="time_unit" class="weight_content">
+  <div class="from_Unit">
+    <label for="fromUnit">From:</label>
+    <select name="fromTime" id="fromTime">
+      <option value="second">Second</option>
+      <option value="minute">Minute</option>
+      <option value="hour">Hour</option>
+      <option value="day">Days</option>
+    </select>
+  </div>
+  <div class="to_Unit">
+    <label for="toUnit">To:</label>
+    <select name="toTime" id="toTime">
+      <option value="second">Second</option>
+      <option value="minute">Minute</option>
+      <option value="hour">Hour</option>
+      <option value="day">Days</option>
+    </select>
+  </div>
+  
+</div>
+
+  <!-- This is for area -->
+  <div id="area_unit" class="weight_content">
+  <div class="from_Unit">
+    <label for="fromUnit">From:</label>
+    <select name="fromArea" id="fromArea">
+      <option value="inch">Inch</option>
+      <option value="feet">Feet</option>
+      <option value="meter">Meter</option>
+      <option value="metersquare">Sq. Meter</option>
+    </select>
+  </div>
+  <div class="to_Unit">
+    <label for="toUnit">To:</label>
+    <select name="toArea" id="toArea">
+      <option value="inch">Inch</option>
+      <option value="feet">Feet</option>
+      <option value="meter">Meter</option>
+      <option value="metersquare">Sq. Meter</option>
+    </select>
+  </div>
+  
+</div>
+
+<!-- This is for Binary units -->
+
+<div id="binary_unit" class="weight_content">
+  <div class="from_Unit">
+    <label for="fromUnit">From:</label>
+    <select name="fromBinary" id="fromBinary">
+      <option value="bit">Bit</option>
+      <option value="byte">Byte</option>
+      <option value="kilobyte">Kilobyte</option>
+      <option value="milibyte">Milibyte</option>
+      <option value="gigabyte">Gigabyte</option>
+      <option value="terabyte">Terabyte</option>
+    </select>
+  </div>
+  <div class="to_Unit">
+    <label for="toUnit">To:</label>
+    <select name="toBinary" id="toBinary">
+      <option value="bit">Bit</option>
+      <option value="byte">Byte</option>
+      <option value="kilobyte">Kilobyte</option>
+      <option value="milibyte">Milibyte</option>
+      <option value="gigabyte">Gigabyte</option>
+      <option value="terabyte">Terabyte</option>
+      
+    </select>
+  </div>
+  
+</div>
+
+<div class="convert_button">
+  <button type="submit" value="Convert" id="convert" name="convert" onclick = "Validate()"> Convert</button>
+</div>
+<div class="outputUnit" id="outputResult"></div>
+</div>
+  
+  </div>
+</div>
+
+</div>
+</section>
+<section></section>
+</div>
+<script src="scripts/script.js"></script>
+
+</body>
 </html>
