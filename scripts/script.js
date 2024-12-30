@@ -1,41 +1,41 @@
-// Getting navigation tab elements
-const weightTabs = document.querySelector("li:nth-child(1)");  // For Weight tab
-const tempTabs = document.querySelector("li:nth-child(2)");    // For Temperature tab
-const timeTabs = document.querySelector("li:nth-child(3)");
-const areaTabs = document.querySelector("li:nth-child(4)");
-const weightContents = document.getElementById('weight_unit');    // Content for weight
-const tempContents = document.getElementById('temp_unit');        // Content for temperature
-const timeContents = document.getElementById('time_unit');
-const areaContents = document.getElementById('area_unit');
+
+const weightTab = document.getElementById('weightList');
+const tempTab = document.getElementById('tempList');
+const timeTab = document.getElementById('timeList');
+const areaTab = document.getElementById('areaList');
+const weightContent = document.getElementById('weight_unit');    // Content for weight
+const tempContent = document.getElementById('temp_unit');        // Content for temperature
+const timeContent = document.getElementById('time_unit');
+const areaContent = document.getElementById('area_unit');
 
 // creating function to switch between tabs on click
 function tabSwitch(showContent){
-weightContents.classList.remove('active');
-tempContents.classList.remove('active');
-timeContents.classList.remove('active');
-areaContents.classList.remove('active');
+weightContent.classList.remove('active'); // removing the active tabs here.
+tempContent.classList.remove('active');
+timeContent.classList.remove('active');
+areaContent.classList.remove('active');
 
 showContent.classList.add('active');
 }
 
 // Adding event listeners to tabs
-weightTabs.addEventListener('click', function(){
-tabSwitch(weightContents);  // Switch to weight content
+weightTab.addEventListener('click', function(){
+tabSwitch(weightContent);  // Switch to weight content
 });
 
-tempTabs.addEventListener('click', function(){
-tabSwitch(tempContents);  // Switch to temperature content
+tempTab.addEventListener('click', function(){
+tabSwitch(tempContent);  // Switch to temperature content
 });
-timeTabs.addEventListener('click', function(){
-tabSwitch(timeContents);
+timeTab.addEventListener('click', function(){
+tabSwitch(timeContent);
 });
-areaTabs.addEventListener('click', function(){
-tabSwitch(areaContents);
+areaTab.addEventListener('click', function(){
+tabSwitch(areaContent);
 });
 
 
 // displaying weight content initially
-tabSwitch(weightContents);
+tabSwitch(weightContent);
 
 // Weight converter
 
@@ -107,14 +107,16 @@ const inputValue = document.getElementById('inputVal').value;
 if (inputValue === "" || isNaN(inputValue) || inputValue <= 0){
   alert("Please enter a valid number");
   return false;
-}
+} else
 weightConvert();
 // tempConvert();
-// timeConvert();
+//timeConvert();
 // areaConvert();
+
 }
 
 // function to clear input value when page refreshes
 window.onload = function(){
 document.getElementById("inputVal").value = "";
 }
+
