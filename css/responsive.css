@@ -58,6 +58,20 @@ font-size: 1.2rem;
 .input_value input {
 min-width: 30%;
 }
+
+.outputUnit {
+    display: block;
+    width: 70%;
+    height: 4rem;
+    border: 1px solid black;
+    background-color: #fff;
+    border-radius: 0.7rem;
+    color:#000;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+  
+  }
 }
 /* For larger screens (desktops) */
 @media (min-width: 1025px) {

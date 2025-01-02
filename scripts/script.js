@@ -16,7 +16,7 @@ timeContent.classList.remove('active');
 areaContent.classList.remove('active');
 
 showContent.classList.add('active');
-}
+
 
 // Adding event listeners to tabs
 weightTab.addEventListener('click', function(){
@@ -26,13 +26,14 @@ tabSwitch(weightContent);  // Switch to weight content
 tempTab.addEventListener('click', function(){
 tabSwitch(tempContent);  // Switch to temperature content
 });
+
 timeTab.addEventListener('click', function(){
-tabSwitch(timeContent);
+tabSwitch(timeContent); // Switch to time content
 });
 areaTab.addEventListener('click', function(){
-tabSwitch(areaContent);
+tabSwitch(areaContent); // Switch to area content
 });
-
+}
 
 // displaying weight content initially
 tabSwitch(weightContent);
@@ -55,7 +56,7 @@ const unitWeight = {
 const unit_in_weight = value * unitWeight[inputWeight];
 const target_units = unit_in_weight / unitWeight[outputWeight];
 
-document.getElementById("outputResult").innerHTML = target_units + " " + outputWeight;
+document.getElementById("outputResult").innerHTML = target_units.toFixed(4) + " " + outputWeight;
 }
 
 // Time converter...
@@ -75,7 +76,7 @@ const outputTime = document.getElementById("toTime").value;
   const unit_in_time = value * unitTime[inputTime]; // collecting input value with unit to convert from
   const target_units = unit_in_time / unitTime[outputTime];
 
-  document.getElementById("outputResult").innerHTML = target_units + " " + outputTime;
+  document.getElementById("outputResult").innerHTML = target_units.toFixed(4) + " " + outputTime;
 }
 
 
@@ -96,27 +97,32 @@ const outputArea = document.getElementById("toArea").value;
   const unit_in_area = value * unitArea[inputArea];
   const target_units = unit_in_area / unitArea[outputArea];
 
-  document.getElementById("outputResult").innerHTML = target_units + " " + outputArea;
+  document.getElementById("outputResult").innerHTML = target_units.toFixed(4) + " " + outputArea;
 }
 
 // Input field validation
 
 function Validate(){
 const inputValue = document.getElementById('inputVal').value;
-
-if (inputValue === "" || isNaN(inputValue) || inputValue <= 0){
+ if(inputValue === "" || isNaN(inputValue) || inputValue <= 0){
   alert("Please enter a valid number");
-  return false;
-} else
-weightConvert();
-// tempConvert();
-//timeConvert();
-// areaConvert();
+return true;
 
 }
 
+if (weightContent.classList.contains('active')) {
+  weightConvert();
+} else if (timeContent.classList.contains('active')) {
+  timeConvert();
+} else if (areaContent.classList.contains('active')) {
+  areaConvert();
+}
+return true;
+}
 // function to clear input value when page refreshes
 window.onload = function(){
 document.getElementById("inputVal").value = "";
 }
+
+
 
