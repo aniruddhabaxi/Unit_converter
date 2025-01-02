@@ -1,19 +1,22 @@
 
 const weightTab = document.getElementById('weightList');
-const tempTab = document.getElementById('tempList');
+//const tempTab = document.getElementById('tempList');
 const timeTab = document.getElementById('timeList');
 const areaTab = document.getElementById('areaList');
+const binaryTab = document.getElementById('binaryList');
 const weightContent = document.getElementById('weight_unit');    // Content for weight
-const tempContent = document.getElementById('temp_unit');        // Content for temperature
+//const tempContent = document.getElementById('temp_unit');        // Content for temperature
 const timeContent = document.getElementById('time_unit');
 const areaContent = document.getElementById('area_unit');
+const binaryContent = document.getElementById('binary_unit');
 
 // creating function to switch between tabs on click
 function tabSwitch(showContent){
 weightContent.classList.remove('active'); // removing the active tabs here.
-tempContent.classList.remove('active');
+//tempContent.classList.remove('active');
 timeContent.classList.remove('active');
 areaContent.classList.remove('active');
+binaryContent.classList.remove('active');
 
 showContent.classList.add('active');
 
@@ -23,16 +26,21 @@ weightTab.addEventListener('click', function(){
 tabSwitch(weightContent);  // Switch to weight content
 });
 
-tempTab.addEventListener('click', function(){
-tabSwitch(tempContent);  // Switch to temperature content
-});
+// tempTab.addEventListener('click', function(){
+// tabSwitch(tempContent);  // Switch to temperature content
+// });
 
 timeTab.addEventListener('click', function(){
 tabSwitch(timeContent); // Switch to time content
 });
+
 areaTab.addEventListener('click', function(){
 tabSwitch(areaContent); // Switch to area content
 });
+
+binaryTab.addEventListener('click', function(){
+  tabSwitch(binaryContent); // Switch to area content
+  });
 }
 
 // displaying weight content initially
@@ -100,6 +108,25 @@ const outputArea = document.getElementById("toArea").value;
   document.getElementById("outputResult").innerHTML = target_units.toFixed(4) + " " + outputArea;
 }
 
+// Binary Converter
+
+function binaryConvert() {
+  const value = document.getElementById("inputVal").value;
+  const inputBinary = document.getElementById("fromBinary").value;
+  const outputBinary = document.getElementById("toBinary").value;
+
+  const unitBinary = {
+    'byte': 1,
+    'kilobyte': 1024,
+    'milibyte': 1024 ** 2,
+    'gigabyte': 1024 ** 3,
+    'terabyte': 1024 ** 4
+  }
+  const unit_in_bytes = value * unitBinary[inputBinary];
+  const target_units = unit_in_bytes / unitBinary[outputBinary];
+
+  document.getElementById("outputResult").innerHTML = target_units.toFixed(4) + " " + outputBinary;
+}
 // Input field validation
 
 function Validate(){
@@ -116,6 +143,8 @@ if (weightContent.classList.contains('active')) {
   timeConvert();
 } else if (areaContent.classList.contains('active')) {
   areaConvert();
+} else if (binaryContent.classList.contains('active')) {
+  binaryConvert();
 }
 return true;
 }

@@ -142,7 +142,8 @@ button {
   font-weight: bold;
 }
 
-#temp_unit,
+/* #temp_unit, */
+#binary_unit,
 #weight_unit,
 #area_unit,
 #time_unit
